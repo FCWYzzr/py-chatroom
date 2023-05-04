@@ -2,7 +2,8 @@ from enum import Enum
 from socket import gethostname, gethostbyname
 
 __all__ = [
-    "Ports"
+    "Ports",
+    "IP"
 ]
 
 
