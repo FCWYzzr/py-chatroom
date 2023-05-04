@@ -29,4 +29,9 @@ class Message:
         """
         # todo 实现decode
 
-
+    def values(self):
+        return (
+            self.index,
+            repr(self.sender),
+            repr(self.content)
+        )
