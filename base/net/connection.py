@@ -1,8 +1,10 @@
-from socket import socket
+from socket import socket, timeout
 
 __all__ = [
     "Connection"
 ]
+
+from typing import Optional
 
 from .message import Message
 
@@ -49,3 +51,10 @@ class Connection:
         self.socket.send(
             message.encode()
         )
+
+    def read_message(self) -> Optional[Message]:
+        try:
+            raw_msg = self.socket.recv(1024)
+            return Message.decode(raw_msg)
+        except timeout:
+            return None
