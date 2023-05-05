@@ -1,4 +1,5 @@
 from socket import socket, timeout
+from constants import IP, Ports
 
 __all__ = [
     "Connection"
@@ -30,7 +31,10 @@ class Connection:
         """
         connect_instance = object.__new__(cls)
 
-        # todo 实现客户端连接实例
+        connect_instance.socket.bind((IP.CLIENT, Ports.CLIENT.value))
+        connect_instance.socket.connect((IP.SERVER, Ports.SERVER.value))
+        # 设置非阻塞
+        connect_instance.socket.settimeout(0)
 
         return connect_instance
 
