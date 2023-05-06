@@ -1,10 +1,6 @@
 from socket import socket, timeout
 from constants import IP, Ports
 
-from .constants import (
-    IP, 
-    Ports
-    )
 
 __all__ = [
     "Connection"
@@ -51,6 +47,8 @@ class Connection:
         :return: 新的Connection实例
         """
         connect_instance = object.__new__(cls)
+
+        connect_instance.socket = server_end
 
         return connect_instance
 
