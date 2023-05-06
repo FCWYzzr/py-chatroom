@@ -1,6 +1,7 @@
 from socket import socket, timeout
 from constants import IP, Ports
 
+
 __all__ = [
     "Connection"
 ]
